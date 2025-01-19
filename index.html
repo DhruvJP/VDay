@@ -7,19 +7,32 @@
 
     <body>
         <h1> VDay </h1>
-        <pre class="p">
+        <pre class="p" id="para">
             Do you have a Valentine?
         </pre>
-        <img src="/assets/Happy3.jpeg" id= "base" width="100%" length="600">
+        <img id= "base" src="/assets/hHuskey.jpeg" width="300" length="100">
         
         <script>
             function accepted() {
-                alert("YAYAYAYAYAYYYYYYYY Happy Valentines!");
+                document.getElementById("base").src = "/assets/1stYes.jpeg";
+                document.getElementById("para").innerHTML = "YAYYAAYAYAYAYAYAYY Happy Valentines Day!";
             }
             function sadness() {
                 const sadPics = ["/assets/Crying.jpeg", "/assets/dCrying.jpeg", "/assets/sKat.jpeg", "/assets/sllama.jpeg"];
+                sadPics.forEach(image => {
+                    image.width = 200;
+                    image.height = 150;
+                });
+
                 const randIndx = Math.floor(Math.random() * sadPics.length);
                 document.getElementById("base").src = sadPics[randIndx];
+                
+                const sndRoute = ["Would you like to be mine?", "Please son, be my Valentine", "I'm crying please"];
+                for (let i = 0; i < sndRoute.length; i++) {
+                    setTimeout(() => {
+                        document.getElementById("para").innerHTML = sndRoute[i];
+                    }, i * 3500);
+                }
             }
         </script>
         
